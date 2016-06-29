@@ -1,16 +1,12 @@
 require('pg')
 
-class SqlRunner
-  def initialize(options)
-    @dbname = options[:dbname]
-    @host = options[:host]
-  end
 
-  def run(sql)
-    db = PG.connect( { dbname:@dbname, host:@host } )
-    result = db.exec( sql )
-    db.close()
-    return result
-  end
-  
-end
+  def run_sql(sql)
+    begin
+      db = PG.connect( { dbname:'music_library', host: 'localhost' } )
+      result = db.exec( sql )
+    ensure
+      db.close()
+    end
+      return result
+    end

@@ -1,0 +1,8 @@
+<h1> Update Artist </h1>
+
+<form action="/artist/<%=@artist.id%>" method="post">
+<label for="name">Name:</label>
+<input type="text" name="name" value="<%= @artist.name %>">
+
+<input type='submit' value="Update Artist">
+</form>
